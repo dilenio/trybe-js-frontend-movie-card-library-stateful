@@ -53,6 +53,8 @@ Os componentes que **precisam** ter estado a ser gerenciado são:
 
 Todos os requisitos do projeto serão testados **automaticamente**. Cada componente possui vários requisitos. Os testes para cada requisito de um componente estão no arquivo de teste correspondente.
 
+Nesse projeto será necessário incluir em vários elementos HTML o atributo **data-testid**. Ele será utilizado pelo avaliador para selecionar os elementos que serão testados. É como se fosse um id do HTML, porém somente utilizado para fins de teste. É muito importante que esses atributos sejam **exatamente iguais** aos descritos, caso contrário os testes irão falhar.
+
 _**Por exemplo**: Os requisitos relacionados ao componente `SearchBar` estão no arquivo `SearchBar.test.js`._
 
 Separe um tempo para ler estes arquivos e entender como os testes estão organizados.
@@ -233,6 +235,8 @@ Esse componente renderizará um formulário que permite adicionar na biblioteca 
 `AddMovie` deve receber como props:
 
   - `onClick`, uma callback
+  
+- O formulário deve apresentar o atributo `data-testid="add-movie-form"`
 
 O que será validado: 
   - Será validado se o componente renderiza 
