@@ -8,7 +8,6 @@ class SearchBar extends React.Component {
       <label htmlFor="search-text" data-testid="text-input-label">
         Inclui o texto:
         <input
-          name="searchText"
           type="text"
           id="search-text"
           value={searchText}

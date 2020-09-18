@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import propTypes from 'prop-types';
+// import propTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
@@ -9,14 +9,26 @@ class MovieLibrary extends Component {
     super();
 
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
 
-    this.state = { searchText: '' };
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+    };
   }
 
   onSearchTextChange({ target }) {
-    const { name } = target;
+    this.setState(() => ({ searchText: target.value }));
+  }
 
-    this.setState(() => ({ [name]: target.value }));
+  onBookmarkedChange({ target }) {
+    this.setState(() => ({ bookmarkedOnly: target.checked }));
+  }
+
+  onSelectedGenreChange({ target }) {
+    this.setState(() => ({ selectedGenre: target.value }));
   }
 
   render() {
@@ -26,10 +38,10 @@ class MovieLibrary extends Component {
         <SearchBar
           searchText={this.state.searchText}
           onSearchTextChange={this.onSearchTextChange}
-          bookmarkedOnly={false}
-          onBookmarkedChange={this.onSearchTextChange}
-          selectedGenre=""
-          onSelectedGenreChange={this.onSearchTextChange}
+          bookmarkedOnly={this.state.bookmarkedOnly}
+          onBookmarkedChange={this.onBookmarkedChange}
+          selectedGenre={this.state.selectedGenre}
+          onSelectedGenreChange={this.onSelectedGenreChange}
         />
         <MovieList movies={this.props.movies} />
         <AddMovie />
@@ -38,16 +50,8 @@ class MovieLibrary extends Component {
   }
 }
 
-MovieLibrary.propTypes = {
-  movies: propTypes.shape({
-    title: propTypes.string,
-    subtitle: propTypes.string,
-    storyline: propTypes.string,
-    rating: propTypes.number,
-    imagePath: propTypes.string,
-    bookmarked: propTypes.bool,
-    genre: propTypes.string,
-  }).isRequired,
-};
+// MovieLibrary.propTypes = {
+//   movies: propTypes.shape.isRequired,
+// };
 
 export default MovieLibrary;
