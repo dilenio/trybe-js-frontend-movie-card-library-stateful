@@ -23,7 +23,7 @@ class AddMovie extends React.Component {
 
   renderTitle() {
     return (
-      <label htmlFor="" data-testid="title-input-label" htmlFor="title">
+      <label data-testid="title-input-label" htmlFor="title">
         Título
         <input
           id="title"
