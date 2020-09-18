@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import propTypes from 'prop-types';
+import propTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
@@ -10,9 +10,7 @@ class MovieLibrary extends Component {
 
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
 
-    this.state = {
-      searchText: '',
-    };
+    this.state = { searchText: '' };
   }
 
   onSearchTextChange({ target }) {
@@ -40,16 +38,16 @@ class MovieLibrary extends Component {
   }
 }
 
-// MovieLibrary.propTypes = {
-//   movies: propTypes.shape({
-//     title: propTypes.string,
-//     subtitle: propTypes.string,
-//     storyline: propTypes.string,
-//     rating: propTypes.number,
-//     imagePath: propTypes.string,
-//     bookmarked: propTypes.bool,
-//     genre: propTypes.string,
-//   }).isRequired,
-// };
+MovieLibrary.propTypes = {
+  movies: propTypes.shape({
+    title: propTypes.string,
+    subtitle: propTypes.string,
+    storyline: propTypes.string,
+    rating: propTypes.number,
+    imagePath: propTypes.string,
+    bookmarked: propTypes.bool,
+    genre: propTypes.string,
+  }).isRequired,
+};
 
 export default MovieLibrary;
