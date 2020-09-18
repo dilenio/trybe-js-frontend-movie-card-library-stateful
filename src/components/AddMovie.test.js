@@ -32,22 +32,22 @@ let sendButton;
 
 
 beforeEach(() => {
-  const { getAllByTestId, getByTestId } = render(<AddMovie onClick={onClick} />);
-  form = getAllByTestId('add-movie-form');
-  titleInput = getByTestId('title-input');
-  titleInputLabel = getByTestId('title-input-label');
-  subtitleInput = getByTestId('subtitle-input');
-  subtitleInputLabel = getByTestId('subtitle-input-label');
-  imageInput = getByTestId('image-input');
-  imageInputLabel = getByTestId('image-input-label');
-  storylineInput = getByTestId('storyline-input');
-  storylineInputLabel = getByTestId('storyline-input-label');
-  ratingInput = getByTestId('rating-input');
-  ratingInputLabel = getByTestId('rating-input-label');
-  genreInput = getByTestId('genre-input');
-  genreInputLabel = getByTestId('genre-input-label');
-  genreOptions = getAllByTestId('genre-option');
-  sendButton = getByTestId('send-button');
+  const { queryAllByTestId, queryByTestId } = render(<AddMovie onClick={onClick} />);
+  form = queryAllByTestId('add-movie-form');
+  titleInput = queryByTestId('title-input');
+  titleInputLabel = queryByTestId('title-input-label');
+  subtitleInput = queryByTestId('subtitle-input');
+  subtitleInputLabel = queryByTestId('subtitle-input-label');
+  imageInput = queryByTestId('image-input');
+  imageInputLabel = queryByTestId('image-input-label');
+  storylineInput = queryByTestId('storyline-input');
+  storylineInputLabel = queryByTestId('storyline-input-label');
+  ratingInput = queryByTestId('rating-input');
+  ratingInputLabel = queryByTestId('rating-input-label');
+  genreInput = queryByTestId('genre-input');
+  genreInputLabel = queryByTestId('genre-input-label');
+  genreOptions = queryAllByTestId('genre-option');
+  sendButton = queryByTestId('send-button');
 });
 
 
@@ -70,11 +70,11 @@ describe('Verifica o input de título do componente <AddMovie />', () => {
     expect(titleInputLabel).toBeInTheDocument();
     expect(titleInputLabel).toHaveTextContent('Título');
   });
-  
+
   it('Será validado se o estado inicial do titulo é "", ou seja, uma string vazia', () => {
     expect(titleInput).toHaveValue(initialState.title);
   });
-  
+
   it('Será validado se o valor do input de título muda quando algo é digitado por quem usa', () => {
     event.type(titleInput, 'my awesome movie title');
 
@@ -86,7 +86,7 @@ describe('Verifica o input de subtítulo do componente <AddMovie />', () => {
   it('Será validado se o componentee renderiza um input de texto para quem usa escrever o subtítulo do filme', () => {
     expect(subtitleInput).toBeInTheDocument();
   });
-  
+
   it('Será validado se o component renderiza a label "Subtítulo" para o input de subtitulo', () => {
     expect(subtitleInputLabel).toBeInTheDocument();
     expect(subtitleInputLabel).toHaveTextContent('Subtítulo');
@@ -107,7 +107,7 @@ describe('Verifica o input de imagem do componente <AddMovie />', () => {
   it('Será validado se o componente renderiza um input de texto para quem usa inserir a url da imagem do filme', () => {
     expect(imageInput).toBeInTheDocument();
   });
-  
+
   it('Será validado se o componente renderiza a label "Imagem" para o input de imagem', () => {
     expect(imageInputLabel).toBeInTheDocument();
     expect(imageInputLabel).toHaveTextContent('Imagem');
@@ -127,7 +127,7 @@ describe('Verifica o input de sinopse do componente <AddMovie />', () => {
   it('Será validado se o componente renderiza um input de texto para quem usa escrever a sinopse do filme', () => {
     expect(storylineInput).toBeInTheDocument();
   });
-  
+
   it('Será validado se o componente renderiza a label "Sinopse" para o input de sinopse', () => {
     expect(storylineInputLabel).toBeInTheDocument();
     expect(storylineInputLabel).toHaveTextContent('Sinopse');
@@ -148,7 +148,7 @@ describe('Verifica o input de avaliação do componente <AddMovie />', () => {
   it('Será validado se o componente renderiza um input de texto para quem usa escrever a avaliação do filme', () => {
     expect(ratingInput).toBeInTheDocument();
   });
-  
+
   it('Será validado se o componente renderiza a label "Avaliação" para o input de avaliação', () => {
     expect(ratingInputLabel).toBeInTheDocument();
     expect(ratingInputLabel).toHaveTextContent('Avaliação');
@@ -177,13 +177,13 @@ describe('Verifica o select de gênero do componente <AddMovie />', () => {
     expect(genreInput).toBeInTheDocument();
     expect(genreOptions).toHaveLength(options.length);
   });
-  
+
   it('Será validado se o component renderiza a label "Gênero" para o select de gênero', () => {
     expect(genreInputLabel).toBeInTheDocument();
     expect(genreInputLabel).toHaveTextContent('Gênero');
   });
 
-  
+
   it('Será validado se todas as opções no select tem o texto e o valor esperados, que são, respectivamente: Ação e action, Comédia e comedy, Suspense e thriller', () => {
     genreOptions.forEach((option, index) => {
       expect(option).toHaveTextContent(options[index].text);
@@ -194,7 +194,7 @@ describe('Verifica o select de gênero do componente <AddMovie />', () => {
   it('Será validado se o gênero selecionado inicialmente é o "action"', () => {
     expect(genreInput).toHaveValue(initialState.genre);
   });
-  
+
   it('Será validado se o valor do gênero muda quando um gênero diferente é escolhido no select', () => {
     event.selectOptions(genreInput, options[1].value);
     expect(genreInput).toHaveValue(genreOptions[1].value);
@@ -202,8 +202,6 @@ describe('Verifica o select de gênero do componente <AddMovie />', () => {
 });
 
 describe('Verifica botão de criar filme do componente <AddMovie />', () => {
-  
-  
   it('Será validado se o texto do botão é "Adicionar filme"', () => {
     expect(sendButton).toHaveTextContent('Adicionar filme');
   });
