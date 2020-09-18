@@ -3,7 +3,7 @@
 Você já usa o GitHub diariamente para desenvolver os exercícios, certo? Agora, para desenvolver os projetos, você deverá seguir as instruções a seguir. Fique atento a cada passo, e se tiver qualquer dúvida, nos envie por _Slack_! #vqv 🚀
 
 Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu projeto a partir deste repositório, utilizando uma branch específica e um _Pull Request_ para colocar seus códigos.
-
+F
 ## O que deverá ser desenvolvido
 
 Você deverá desenvolver uma aplicação que consiste em uma biblioteca de cartões de filmes dinâmica utilizando React. A biblioteca é composta por:
@@ -138,11 +138,21 @@ Esse componente renderizará uma barra com filtros acima da listagem de cartões
   - `selectedGenre`, uma string
   - `onSelectedGenreChange`, uma callback
 
+O que será validado: 
+  - Será validado se o componente `SearchBar` renderiza com sucesso 
+
+
+
+
 #### Renderize um formulário dentro de `SearchBar`
 
 Dentro desse formulário haverá campos usados na filtragem de cartões.
 
 - Esse formulário deve apresentar o atributo `data-testid="search-bar-form"`
+
+O que será validado:
+  - Será validado se é renderizado 1, e apenas 1, form dentro de `SearchBar` com sucesso 
+
 
 #### Renderize um input do tipo texto dentro do formulário em `SearchBar`
 
@@ -156,6 +166,13 @@ Dentro desse formulário haverá campos usados na filtragem de cartões.
 
 - Esse input deve apresentar o atributo `data-testid="text-input"`
 
+O que será validado:
+  - Será validado que 1, e apenas 1, input de texto é renderizado dentro do forms 
+  - Será validado que o input de texto contém a label "Inclui o texto" 
+  - Será validado se o input de texto tem o valor passado pela props `searchText` 
+  - Será validado que a props `onSearchTextChange` é passada para o atributo `onChange` do input 
+  
+
 #### Renderize um input do tipo checkbox dentro do formulário em `SearchBar`
 
 - O input deve ter uma label associada com o texto: **"Mostrar somente favoritos"**;
@@ -167,6 +184,13 @@ Dentro desse formulário haverá campos usados na filtragem de cartões.
 - A propriedade `onChange` do input deve receber o valor da prop `onBookmarkedChange`.
 
 - Esse input deve apresentar o atributo `data-testid="checkbox-input"`
+
+O que será validado:
+  - Será validado se uma checkbox é renderizada dentro do form 
+  - Será validado que o checkbox tem a label "Mostrar somente favoritos" 
+  - Será validado que a prop `bookmarkedOnly` é passada para o atributo `checked` do input 
+  - Será validado que a prop `onBookmarkedChange` é passada para o atributo `onChange` do input 
+  
 
 #### Renderize um select dentro do formulário em `SearchBar`
 
@@ -188,6 +212,13 @@ Dentro desse formulário haverá campos usados na filtragem de cartões.
 
 - Cada `option` deve apresentar o atributo `data-testid="select-option"`
 
+O que será validado:
+  - Será validado que um select é renderizado dentro do form 
+  - Será validado se o componente tem uma label com o texto "Filtrar por gênero" 
+  - Será validado se a prop `selectedGenre` é passada como valor do select 
+  - Será validado se a prop `onSelectedGenreChange` é passada para o atributo `onChange` do select 
+  - Será validado se são renderizadas 4 options dentro do select com os textos e valores, respectivamente: Todos e \'\', Ação e action, Comédia e comedy, Suspense e thriller  
+
 #### Crie um componente chamado `AddMovie`
 
 Esse componente renderizará um formulário que permite adicionar na biblioteca um novo cartão de filme, dadas as seguintes informações do novo filme:
@@ -202,6 +233,10 @@ Esse componente renderizará um formulário que permite adicionar na biblioteca 
 `AddMovie` deve receber como props:
 
   - `onClick`, uma callback
+
+O que será validado: 
+  - Será validado se o componente renderiza 
+  - Será validado se o componente renderiza 1, e apenas 1, form 
 
 #### Configure o estado inicial do componente `AddMovie`
 
@@ -225,9 +260,11 @@ O estado inicial do componente `AddMovie` deve ser:
   - `rating`: 0;
   - `genre`: 'action'.
 
+
 #### Renderize um formulário dentro de `AddMovie`
 
 Dentro desse formulário haverá campos usados para preencher informações do novo cartão a ser adicionado na biblioteca.
+
 
 #### Renderize um input do tipo texto dentro do formulário em `AddMovie` para obter o título do novo filme
 
@@ -241,6 +278,14 @@ Dentro desse formulário haverá campos usados para preencher informações do n
 
 - A propriedade `onChange` deve atualizar o estado de `AddMovie`, atribuindo a `title` o atual título contido no input.
 
+O que será validado:
+  - Será validado se o componente renderiza um input de texto para quem usa escrever o titulo do filme 
+  - Será validado se o componente renderiza a label "Título" para o input de titulo 
+  - Será validado se o estado inicial do titulo é "", ou seja, uma string vazia 
+  - Será validado se o valor do input de título muda quando algo é digitado por quem usa.
+  
+
+
 #### Renderize um input do tipo texto dentro do formulário em `AddMovie` para obter o subtítulo do novo filme
 
 - O input deve ter uma label associada com o texto: **"Subtítulo"**;
@@ -252,6 +297,13 @@ Dentro desse formulário haverá campos usados para preencher informações do n
 - Esse input deve apresentar o atributo `data-testid="subtitle-input"`
 
 - A propriedade `onChange` deve atualizar o estado de `AddMovie`, atribuindo a `subtitle` o atual subtítulo contido no input.
+
+O que será validado:
+  - Será validado se o componentee renderiza um input de texto para quem usa escrever o subtítulo do filme 
+  - Será validado se o component renderiza a label "Subtítulo" para o input de subtitulo 
+  - Será validado se o estado inicial do subtitulo é "", ou seja, uma string vazia 
+  - Será validado se o valor do input de subtitulo muda quando algo é digitado pelo usuário 
+  
 
 #### Renderize um input do tipo texto dentro do formulário em `AddMovie` para obter o caminho da imagem do novo filme
 
@@ -265,6 +317,13 @@ Dentro desse formulário haverá campos usados para preencher informações do n
 
 - A propriedade `onChange` deve atualizar o estado de `AddMovie`, atribuindo a `imagePath` o atual caminho da imagem contido no input.
 
+O que será validado:
+  - Será validado se o componente renderiza um input de texto para quem usa inserir a url da imagem do filme 
+  - Será validado se o componente renderiza a label "Imagem" para o input de imagem 
+  - Será validado se o estado inicial do input de imagem é "", ou seja, uma string vazia 
+  - Será validado se o valor do input de imagem muda quando algo é digitado por quem usa 
+  
+
 #### Renderize uma `textarea` dentro do formulário em `AddMovie` para obter a sinopse do novo filme
 
 - A `textarea` deve ter uma label associada com o texto: **"Sinopse"**;
@@ -277,6 +336,13 @@ Dentro desse formulário haverá campos usados para preencher informações do n
 
 - A propriedade `onChange` deve atualizar o estado de `AddMovie`, atribuindo a `storyline` a sinopse atual continda na `textarea`.
 
+O que será validado:
+  - Será validado se o componente renderiza um input de texto para quem usa escrever a sinopse do filme 
+  - Será validado se o componente renderiza a label "Sinopse" para o input de sinopse 
+  - Será validado se o estado inicial do input de sinopse é "", ou seja, uma string vazia 
+  - Será validado se o valor do input de sinopse muda quando algo é digitado por quem usa 
+  
+
 #### Renderize um `input` do tipo `number` dentro do formulário em `AddMovie` para obter a avaliação do novo filme
 
 - O `input` deve ter uma label associada com o texto: **"Avaliação"**;
@@ -285,9 +351,16 @@ Dentro desse formulário haverá campos usados para preencher informações do n
 
 - O `input` deve ter seu valor inicial provido pelo estado inicial do componente, via `rating`;
 
-- Essa `textarea` deve apresentar o atributo `data-testid="rating-input"`
+- Essa `input` deve apresentar o atributo `data-testid="rating-input"`
 
 - A propriedade `onChange` deve atualizar o estado de `AddMovie`, atribuindo a `rating` a avaliação atual continda no input.
+
+O que será validado:
+  - Será validado se o componente renderiza um input de texto para quem usa escrever a avaliação do filme 
+  - Será validado se o componente renderiza a label "Avaliação" para o input de avaliação 
+  - Será validado se o estado inicial do input de avaliação é 0 
+  - Será validado se o valor do input de avaliação muda quando algo é digitado por quem usa 
+  
 
 #### Renderize um `select` do formulário em `AddMovie` para selecionar o gênero do novo filme
 
@@ -297,7 +370,7 @@ Dentro desse formulário haverá campos usados para preencher informações do n
 
 - O `select` deve ter seu valor inicial provido pelo estado inicial do componente, via `genre`;
 
-- Essa `textarea` deve apresentar o atributo `data-testid="genre-input"`
+- Essa `input` deve apresentar o atributo `data-testid="genre-input"`
 
 - A propriedade `onChange` deve atualizar o estado de `AddMovie`, atribuindo a `genre` o gênero atual selecionado;
 
@@ -307,6 +380,14 @@ Dentro desse formulário haverá campos usados para preencher informações do n
    - `Suspense`, com o valor `thriller`.
 
 - Cada `option` deve conter o atributo `data-testid="genre-option"`
+
+O que será validado:
+  - Será validado se o componente renderiza um select com 3 opções de genero de filme 
+  - Será validado se o componente renderiza a label "Gênero" para o select de gênero 
+  - Será validado se todas as opções no select tem o texto e o valor esperados, que são, respectivamente: Ação e action, Comédia e comedy, Suspense e thriller 
+  - Será validado se o gênero selecionado inicialmente é o "action" 
+  - Será validado se o valor do gênero muda quando um gênero diferente é escolhido no select 
+
 
 #### Renderize um botão do formulário em `AddMovie` para fazer uso dos dados do novo filme, contidos no estado de `AddMovie`
 
@@ -318,6 +399,11 @@ Dentro desse formulário haverá campos usados para preencher informações do n
   - Executa a callback passada para o componente `AddMovie` via props, chamada `onClick`, que recebe como parâmetro o estado atual de `AddMovie`;
   - Reseta o estado de `AddMovie`, voltando para o inicial, conforme mencionado anteriormente.
 
+O que será validado:
+  - Será validado se o texto do botão é "Adicionar filme" 
+  - Será validado se o evento onClick é chamado ao se clicar no botão. 
+  - Será validado se o estado dos inputs volta ao inicial depois que o botão de adicionar é clicado. 
+
 #### Crie um componente chamado `MovieLibrary`
 
 Esse componente renderizará a biblioteca de filmes que renderizará a `searchBar` e o `addMovies` para filtrar por filmes e adicionar um filme à biblioteca respectivamente.
@@ -325,6 +411,10 @@ Esse componente renderizará a biblioteca de filmes que renderizará a `searchBa
 `MovieLibrary` deve receber como props:
 
   - `movies`, um array
+
+O que será validado: 
+  - Será validado se o componente é renderizado com sucesso 
+
 
 #### Configure o estado inicial do componente `MovieLibray`
 
@@ -344,6 +434,13 @@ O estado inicial do componente `MovieLibrary` deve ser:
   - `selectedGenre`: '';
   - `movies`: a lista de filmes passadas pela props `movies`.
 
+O que será validado:
+  - Será validado se o `searchText` é inicializado com uma string vazia 
+  - Será validado se o `bookmarkedOnly` é inicializado com o boleano `falso` 
+  - Será validado se o `selectedGenre` é inicializado com uma string vazia 
+  - Será validado se o todos os `movies` são renderezidados. 
+
+
 #### Renderize `SearchBar` dentro de `MovieLibrary`
 
 - `searchText` oriundo do estado de `MovieLibrary` deve ser passado para a prop `searchText` de `SearchBar`;
@@ -357,6 +454,13 @@ O estado inicial do componente `MovieLibrary` deve ser:
 - `selectedGenre` oriundo do estado de `MovieLibrary` deve ser passado para a prop `selectedGenre` de `SearchBar`;
 
 - A callback para atualizar o estado de `MovieLibrary` em `selectedGenre` precisa ser passada para `SearchBar`.
+
+O que será validado:
+  - Será validado se um componente `SearchBar` é renderizado 
+  - Será validado se o estado da `SearchBar` muda quando quem usa digita algo 
+  - Será validado que é possivel selecionar a opção de filtrar por favoritos` 
+  - Será validado que é possivel escolher uma categoria uma categoria de filme para filtrar 
+
 
 #### Renderize `MovieList` dentro de `MovieLibrary`
 
@@ -377,13 +481,28 @@ O estado inicial do componente `MovieLibrary` deve ser:
   - Filmes cujo subtítulo contém o que está presente em `searchText`, **ou**;
   - Filmes cuja sinopse contém o que está presente em` searchText`.
 
+O que será validado:
+  - Será validado que o componente `MovieList` é renderizado com sucesso 
+  - Será validado se a barra de buscas filtra os filmes por titulo 
+  - Será validado se a barra de buscas filtra os filmes por subtítulo 
+  - Será validado se a barra de buscas filtra os filmes por sinopse 
+  - Será validado se a lista de filmes é renderizada sem filtragens se a barra de buscar estiver vazia 
+  - Será validado que é possivel filtrar por favoritos 
+  - Será validado que é possivel filtrar por categoria 
+
+
 #### Renderize `AddMovie` dentro de `MovieLibrary`
 
 - A callback que permite adicionar um novo filme ao final da lista precisa ser passada para `AddMovie`.
 
+O que será validado:
+  - Será validado se o componente `AddMovie` é renderizado com sucesso 
+  - Será validado se é possível adicionar um novo filme a lista de filmes 
+
 #### Adicione proptypes a todos os componentes
 
 Todos os compontens que recebem props devem ter suas proptypes corretamente declaradas. O eslint checa automaticamente declaração de proptypes, portanto seu Pull Request deverá passar no Code Climate para satisfazer esse requisito.
+
 
 ---
 
@@ -392,9 +511,9 @@ Todos os compontens que recebem props devem ter suas proptypes corretamente decl
 ### ANTES DE COMEÇAR A DESENVOLVER:
 
 1. Clone o repositório
-  * `git clone git@github.com:tryber/sd-0x-block13-project-movie-card-library-stateful.git`.
+  * `git clone git@github.com:tryber/sd-06-project-movie-card-library-stateful.git`.
   * Entre na pasta do repositório que você acabou de clonar:
-    * `cd sd-0x-block13-project-movie-card-library-stateful`
+    * `cd sd-06-project-movie-card-library-stateful`
 
 2. Instale as dependências, inicialize o projeto e rode os testes
   * Instale as dependências:
@@ -457,13 +576,13 @@ export default MovieLibrary;
   * Usando o exemplo anterior: `git push -u origin joaozinho-movie-cards-library-stateful`
 
 7. Crie um novo `Pull Request` _(PR)_
-  * Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/tryber/sd-0x-block13-project-movie-card-library-stateful/pulls)
+  * Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/tryber/sd-06-project-movie-card-library-stateful/pulls)
   * Clique no botão verde _"New pull request"_
   * Clique na caixa de seleção _"Compare"_ e escolha a sua branch **com atenção**
   * Clique no botão verde _"Create pull request"_
   * Adicione uma descrição para o _Pull Request_ e clique no botão verde _"Create pull request"_
   * **Não se preocupe em preencher mais nada por enquanto!**
-  * Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-0x-block13-project-movie-card-library-stateful/pulls) e confira que o seu _Pull Request_ está criado
+  * Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-06-project-movie-card-library-stateful/pulls) e confira que o seu _Pull Request_ está criado
 
 ---
 
