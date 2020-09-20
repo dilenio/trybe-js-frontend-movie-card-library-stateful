@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import propTypes from 'prop-types';
 
-class AddMovie extends React.Component {
+class AddMovie extends Component {
   constructor() {
     super();
 
@@ -172,6 +172,6 @@ class AddMovie extends React.Component {
   }
 }
 
-AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
+AddMovie.propTypes = { onClick: propTypes.func.isRequired };
 
 export default AddMovie;
