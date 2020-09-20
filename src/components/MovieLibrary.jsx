@@ -45,8 +45,7 @@ class MovieLibrary extends Component {
       .filter((element) =>
         (element.title.toLowerCase().includes(this.state.searchText.toLowerCase())
           || element.subtitle.toLowerCase().includes(this.state.searchText.toLowerCase())
-          || element.storyline.toLowerCase().includes(this.state.searchText.toLowerCase()))
-      )
+          || element.storyline.toLowerCase().includes(this.state.searchText.toLowerCase())))
       .filter((element) => element.genre.includes(this.state.selectedGenre))
       .filter((element) => {
         if (this.state.bookmarkedOnly) {
@@ -55,7 +54,7 @@ class MovieLibrary extends Component {
         return true;
       })
       .map((movies) => movies);
-    return (result)
+    return (result);
   }
 
   render() {
