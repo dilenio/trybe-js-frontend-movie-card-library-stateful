@@ -21,15 +21,15 @@ class MovieLibrary extends Component {
   }
 
   onSearchTextChange({ target }) {
-    this.setState(() => ({ searchText: target.value }));
+    this.setState({ searchText: target.value });
   }
 
   onBookmarkedChange({ target }) {
-    this.setState(() => ({ bookmarkedOnly: target.checked }));
+    this.setState({ bookmarkedOnly: target.checked });
   }
 
   onSelectedGenreChange({ target }) {
-    this.setState(() => ({ selectedGenre: target.value }));
+    this.setState({ selectedGenre: target.value });
   }
 
   onCLick() { }
