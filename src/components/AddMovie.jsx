@@ -12,7 +12,7 @@ class AddMovie extends Component {
     this.renderRating = this.renderRating.bind(this);
     this.renderGenre = this.renderGenre.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.handleSend = this.handleSend.bind(this);
+    this.handleClick = this.handleClick.bind(this);
 
     this.state = {
       subtitle: '',
@@ -21,6 +21,7 @@ class AddMovie extends Component {
       storyline: '',
       rating: 0,
       genre: 'action',
+      bookmarked: false,
     };
   }
 
@@ -28,7 +29,8 @@ class AddMovie extends Component {
     this.setState({ [target.name]: target.value });
   }
 
-  handleSend() {
+  handleClick(event) {
+    event.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
 
@@ -39,6 +41,7 @@ class AddMovie extends Component {
       storyline: '',
       rating: 0,
       genre: 'action',
+      bookmarked: false,
     });
   }
 
@@ -91,9 +94,8 @@ class AddMovie extends Component {
     return (
       <label data-testid="storyline-input-label" htmlFor="storyline">
         Sinopse
-        <input
+        <textarea
           name="storyline"
-          type="textarea"
           data-testid="storyline-input"
           value={this.state.storyline}
           onChange={this.handleChange}
@@ -109,6 +111,7 @@ class AddMovie extends Component {
         <input
           name="rating"
           type="number"
+          step="0.1"
           data-testid="rating-input"
           value={this.state.rating}
           onChange={this.handleChange}
@@ -146,12 +149,12 @@ class AddMovie extends Component {
 
   renderButton() {
     return (
-      <input
+      <button
         type="button"
         name="sendButton"
         data-testid="send-button"
-        onChange={this.handleSend}
-      >Adicionar filme</input>
+        onClick={this.handleClick}
+      >Adicionar filme</button>
     );
   }
 
@@ -166,6 +169,7 @@ class AddMovie extends Component {
           {this.renderStoryline()}
           {this.renderRating()}
           {this.renderGenre()}
+          {this.renderButton()}
         </form>
       </div>
     );
