@@ -34,7 +34,6 @@ class MovieLibrary extends Component {
 
   onClick(result) {
     this.props.movies.push(result);
-    console.log(this.props.movies)
   }
 
   render() {
