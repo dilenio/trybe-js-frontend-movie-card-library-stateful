@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -143,11 +144,12 @@ class AddMovie extends React.Component {
 
   renderButton() {
     return (
-      <button
+      <input
+        type="button"
         name="sendButton"
         data-testid="send-button"
         onChange={this.handleSend}
-      >Adicionar filme</button>
+      >Adicionar filme</input>
     );
   }
 
@@ -167,5 +169,7 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.prototypes = { onClick: propTypes.func.isRequired };
 
 export default AddMovie;
