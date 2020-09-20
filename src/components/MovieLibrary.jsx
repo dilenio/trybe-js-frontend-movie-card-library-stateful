@@ -19,7 +19,7 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: movies,
+      movies,
     };
   }
 
@@ -42,25 +42,23 @@ class MovieLibrary extends Component {
   // .filter(element => element.genre.includes(this.state.selectedGenre))
   filteredMovies() {
     const result = this.state.movies
-      .filter(element => {
-        return (element.title.toLowerCase().includes(this.state.searchText.toLowerCase())
+      .filter((element) =>
+        (element.title.toLowerCase().includes(this.state.searchText.toLowerCase())
           || element.subtitle.toLowerCase().includes(this.state.searchText.toLowerCase())
           || element.storyline.toLowerCase().includes(this.state.searchText.toLowerCase()))
-      })
-      .filter(element => element.genre.includes(this.state.selectedGenre))
-      .filter(element => {
+      )
+      .filter((element) => element.genre.includes(this.state.selectedGenre))
+      .filter((element) => {
         if (this.state.bookmarkedOnly) {
           return element.bookmarked === this.state.bookmarkedOnly;
-        } else {
-          return true
         }
+        return true;
       })
-      .map(movies => movies);
+      .map((movies) => movies);
     return (result)
   }
 
   render() {
-    console.log(this.state)
     return (
       <div>
         <h2> My awesome movie library </h2>
